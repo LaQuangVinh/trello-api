@@ -15,6 +15,9 @@ import { APIs_V1 } from '~/routes/v1'
 const START_SERVER = () => {
   const app = express()
 
+  // enable req.body jon data
+  app.use(express.json())
+
   // APIs v1 status
   app.use('/v1', APIs_V1)
 
