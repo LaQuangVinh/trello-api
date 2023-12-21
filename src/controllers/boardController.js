@@ -9,8 +9,8 @@ import { boardService } from '~/services/boardService'
 
 const createNew = async (req, res, next) => {
   try {
-    const creatBoarde = await boardService.createNew(req.body)
-    res.status(StatusCodes.CREATED).json(creatBoarde)
+    const createdBoarde = await boardService.createNew(req.body)
+    res.status(StatusCodes.CREATED).json(createdBoarde)
   } catch (error) {
     next(error)
   }
