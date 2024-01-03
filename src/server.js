@@ -30,7 +30,7 @@ const START_SERVER = () => {
   app.use(errorHandlingMiddleware)
 
   app.listen(env.APP_PORT, env.APP_HOST, () => {
-    // eslint-disable-next-line no-console
+
     console.log(`Hello ${env.AUTHOR}, I am running at ${ env.APP_HOST }:${ env.APP_PORT }/`)
   })
 

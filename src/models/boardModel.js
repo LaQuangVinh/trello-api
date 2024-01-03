@@ -133,6 +133,27 @@ const update = async (boardId, updateData) => {
   }
 }
 
+// Nhiệm vụ của func này là pull một giá trị ra khỏi mảng columnOrderIds
+const pullColumnOrderId = async (column) => {
+  try {
+    const result = await GET_DB().collection(BOARD_COLLECTION_NAME).findOneAndUpdate(
+      {
+        _id: new ObjectId(column.boardId)
+      },
+      {
+        $pull: { columnOrderIds: new ObjectId(column._id) }
+      },
+      {
+        returnDocument: 'after'
+      }
+    )
+    return result
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+
 export const boardModel = {
   BOARD_COLLECTION_NAME,
   BOARD_COLLECTION_SCHEMA,
@@ -140,5 +161,6 @@ export const boardModel = {
   findOneById,
   getDetails,
   pushColumnOrderId,
-  update
+  update,
+  pullColumnOrderId
 }
