@@ -21,4 +21,8 @@ Router.route('/:id')
   .get(boardController.getDetails)
   .put(boardValidation.update, boardController.update)
 
+//API hỗ trợ kéo thả card giữa 22 column khác nhau
+Router.route('/supports/moving_card')
+  .put(boardValidation.moveCardInTheDifferentColumn, boardController.moveCardInTheDifferentColumn)
+
 export const boardRoute = Router

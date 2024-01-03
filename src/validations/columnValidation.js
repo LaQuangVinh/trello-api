@@ -34,6 +34,7 @@ const update = async (req, res, next) => {
     )
   })
 
+
   try {
     await correctCondition.validateAsync(req.body, { abortEarly: false, allowUnknown: true })
     next()
